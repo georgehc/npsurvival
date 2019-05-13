@@ -1,0 +1,57 @@
+cox
+k-NN l2
+k-NN l1
+k-NN cosine
+k-NN (triangle) l2
+k-NN (triangle) l1
+k-NN (triangle) cosine
+k-NN (Epanechnikov) l2
+k-NN (Epanechnikov) l1
+k-NN (Epanechnikov) cosine
+k-NN (truncated Gauss sigma=1) l2
+k-NN (truncated Gauss sigma=1) l1
+k-NN (truncated Gauss sigma=1) cosine
+k-NN (truncated Gauss sigma=2) l2
+k-NN (truncated Gauss sigma=2) l1
+k-NN (truncated Gauss sigma=2) cosine
+k-NN (truncated Gauss sigma=3) l2
+k-NN (truncated Gauss sigma=3) l1
+k-NN (truncated Gauss sigma=3) cosine
+cdfreg k-NN l2
+cdfreg k-NN l1
+cdfreg k-NN cosine
+cdfreg k-NN (triangle) l2
+cdfreg k-NN (triangle) l1
+cdfreg k-NN (triangle) cosine
+cdfreg k-NN (Epanechnikov) l2
+cdfreg k-NN (Epanechnikov) l1
+cdfreg k-NN (Epanechnikov) cosine
+cdfreg k-NN (truncated Gauss sigma=1) l2
+cdfreg k-NN (truncated Gauss sigma=1) l1
+cdfreg k-NN (truncated Gauss sigma=1) cosine
+cdfreg k-NN (truncated Gauss sigma=2) l2
+cdfreg k-NN (truncated Gauss sigma=2) l1
+cdfreg k-NN (truncated Gauss sigma=2) cosine
+cdfreg k-NN (truncated Gauss sigma=3) l2
+cdfreg k-NN (truncated Gauss sigma=3) l1
+cdfreg k-NN (truncated Gauss sigma=3) cosine
+kernel (box) l2
+kernel (box) l1
+kernel (box) cosine
+kernel (triangle) l2
+kernel (triangle) l1
+kernel (triangle) cosine
+kernel (Epanechnikov) l2
+kernel (Epanechnikov) l1
+kernel (Epanechnikov) cosine
+kernel (truncated Gauss sigma=1) l2
+kernel (truncated Gauss sigma=1) l1
+kernel (truncated Gauss sigma=1) cosine
+kernel (truncated Gauss sigma=2) l2
+kernel (truncated Gauss sigma=2) l1
+kernel (truncated Gauss sigma=2) cosine
+kernel (truncated Gauss sigma=3) l2
+kernel (truncated Gauss sigma=3) l1
+kernel (truncated Gauss sigma=3) cosine
+random survival forest
+adaptive kernel

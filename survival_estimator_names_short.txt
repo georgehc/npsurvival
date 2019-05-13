@@ -1,0 +1,15 @@
+cox
+k-NN l2
+k-NN l1
+k-NN cosine
+k-NN (triangle) l2
+k-NN (triangle) l1
+k-NN (triangle) cosine
+kernel (box) l2
+kernel (box) l1
+kernel (box) cosine
+kernel (triangle) l2
+kernel (triangle) l1
+kernel (triangle) cosine
+random survival forest
+adaptive kernel
