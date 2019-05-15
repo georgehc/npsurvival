@@ -6,5 +6,5 @@ mkdir -p transcripts
 
 for method in "${methods[@]}"
 do
-    python demo_${method}.py config_cum_haz.ini > transcripts/demo_${method}_cum_haz.txt
+    python demo_${method}.py config.ini > transcripts/demo_${method}.txt
 done

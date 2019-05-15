@@ -9,8 +9,6 @@ import numpy as np
 import pandas as pd
 
 import matplotlib
-# matplotlib.use('TkAgg')
-# matplotlib.use('GTKCairo')
 import matplotlib.pyplot as plt
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
@@ -100,7 +98,6 @@ for filename in csv_filenames:
 for key in results:
     results[key] = np.array(results[key])
 
-# matplotlib.rcParams.update({'font.size': 8})
 figsize = (4.3, 4)
 vert = False
 
@@ -114,46 +111,49 @@ for dataset in datasets:
         dataset_table.append(np.nanmean(results[key], axis=0))
 
         cindex_scores = results[key][:, 0]  # c-index
-        IPEC_scores = results[key][:, 4]  # IPEC (0.75)
+        IPEC_75_idx = IPEC_percentiles.index(0.75)
+        IPEC_scores = results[key][:, 1 + IPEC_75_idx]  # IPEC (0.75)
 
         cindex_scores = cindex_scores[~np.isnan(cindex_scores)]
         IPEC_scores = IPEC_scores[~np.isnan(IPEC_scores)]
         all_cindex_scores.append(cindex_scores)
         all_IPEC_scores.append(IPEC_scores)
 
+    methods_capitalize_l1_l2 = []
+    for method in methods:
+        if method.endswith(' l1'):
+            methods_capitalize_l1_l2.append(method[:-3] + ' L1')
+        elif method.endswith(' l2'):
+            methods_capitalize_l1_l2.append(method[:-3] + ' L2')
+        else:
+            methods_capitalize_l1_l2.append(method)
+
     plt.figure(figsize=figsize)
     if vert:
-        # if dataset == 'pbc':
-        #     plt.ylim([0.725, 0.89])
         plt.boxplot(all_cindex_scores, vert=vert)
-        plt.xticks(range(1, len(methods) + 1), methods, rotation=90)
+        plt.xticks(range(1, len(methods) + 1), methods_capitalize_l1_l2,
+                   rotation=90)
         plt.ylabel('c-index')
     else:
-        # if dataset == 'pbc':
-        #     plt.xlim([0.725, 0.89])
         plt.boxplot(all_cindex_scores[::-1], vert=vert)
         plt.xlabel('c-index')
-        plt.yticks(range(1, len(methods) + 1), methods[::-1])
+        plt.yticks(range(1, len(methods) + 1), methods_capitalize_l1_l2[::-1])
     plt.title('Dataset "%s" Concordance Indices' % dataset)
     plt.tight_layout()
-    plt.savefig('fig_%s_cindex_%s.pdf' % (dataset, cindex_method))
+    plt.savefig('fig_%s_cindex_%s_short.pdf' % (dataset, cindex_method))
 
     plt.figure(figsize=figsize)
     if vert:
         plt.boxplot(all_IPEC_scores, vert=vert)
-        plt.xticks(range(1, len(methods) + 1), methods, rotation=90)
+        plt.xticks(range(1, len(methods) + 1), methods_capitalize_l1_l2,
+                   rotation=90)
         plt.ylabel('IPEC / time horizon')
     else:
         plt.boxplot(all_IPEC_scores[::-1], vert=vert)
         plt.xlabel('IPEC / time horizon')
-        plt.yticks(range(1, len(methods) + 1), methods[::-1])
+        plt.yticks(range(1, len(methods) + 1), methods_capitalize_l1_l2[::-1])
     plt.title('Dataset "%s" IPEC Scores' % dataset)
     plt.tight_layout()
-    plt.savefig('fig_%s_ipec.pdf' % dataset)
-
-    # df = pd.DataFrame(dataset_table, methods, columns) 
-    # print('[%s]' % dataset)
-    # print(df)
-    # print()
+    plt.savefig('fig_%s_ipec_short.pdf' % dataset)
 
 plt.show()

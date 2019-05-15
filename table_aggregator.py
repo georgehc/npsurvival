@@ -99,7 +99,17 @@ for dataset in datasets:
         if method in methods_seen:
             key = (dataset, method)
             dataset_table.append(np.nanmean(results[key], axis=0))
-    df = pd.DataFrame(dataset_table, methods, columns) 
+
+    methods_capitalize_l1_l2 = []
+    for method in methods:
+        if method.endswith(' l1'):
+            methods_capitalize_l1_l2.append(method[:-3] + ' L1')
+        elif method.endswith(' l2'):
+            methods_capitalize_l1_l2.append(method[:-3] + ' L2')
+        else:
+            methods_capitalize_l1_l2.append(method)
+
+    df = pd.DataFrame(dataset_table, methods_capitalize_l1_l2, columns)
     print('[%s]' % dataset)
     print(df)
     print()
