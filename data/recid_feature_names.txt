@@ -1,0 +1,14 @@
+black
+alcohol
+drugs
+super
+married
+felon
+workprg
+property
+person
+priors
+educ
+rules
+age
+tserved
