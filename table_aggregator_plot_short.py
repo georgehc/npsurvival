@@ -140,7 +140,7 @@ for dataset in datasets:
         plt.yticks(range(1, len(methods) + 1), methods_capitalize_l1_l2[::-1])
     plt.title('Dataset "%s" Concordance Indices' % dataset)
     plt.tight_layout()
-    plt.savefig('fig_%s_cindex_%s_short.pdf' % (dataset, cindex_method))
+    plt.savefig('fig_%s_cindex_short.pdf' % dataset)
 
     plt.figure(figsize=figsize)
     if vert:
