@@ -3,7 +3,7 @@ import ast
 import configparser
 import csv
 import os
-os.environ['QT_QPA_PLATFORM']='offscreen'
+os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 import sys
 
 import numpy as np

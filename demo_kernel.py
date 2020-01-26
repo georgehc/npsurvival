@@ -4,7 +4,7 @@ import configparser
 import csv
 import itertools
 import os
-os.environ['QT_QPA_PLATFORM']='offscreen'
+os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 import sys
 
 import numpy as np
@@ -130,10 +130,10 @@ for experiment_idx in range(n_experiment_repeats):
                     else:
                         mesh_points = sorted_fold_y_val
                     surv = \
-                        surv_model.predict_proba(fold_X_val_standardized,
-                                                 mesh_points,
-                                                 presorted_times=True,
-                                                 kernel_function=kernel_func)
+                        surv_model.predict_surv(fold_X_val_standardized,
+                                                mesh_points,
+                                                presorted_times=True,
+                                                kernel_function=kernel_func)
 
                     # ---------------------------------------------------------
                     # compute c-index
@@ -272,9 +272,9 @@ for experiment_idx in range(n_experiment_repeats):
                 else:
                     mesh_points = sorted_y_test
                 surv = \
-                    surv_model.predict_proba(X_test_standardized, mesh_points,
-                                             presorted_times=True,
-                                             kernel_function=kernel_func)
+                    surv_model.predict_surv(X_test_standardized, mesh_points,
+                                            presorted_times=True,
+                                            kernel_function=kernel_func)
 
                 # -----------------------------------------------------------------
                 # compute c-index

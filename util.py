@@ -86,9 +86,8 @@ def compute_IPEC_scores(y_train, y_test, times, surv_functions, IPEC_horizons,
     bs = BasicSurvival()
     bs.fit(y_train_indicator_swap)
 
-    G = bs.predict_proba(times, presorted_times=True, limit_from_left=False)
-    G_left = bs.predict_proba(times, presorted_times=True,
-                              limit_from_left=True)
+    G = bs.predict_surv(times, presorted_times=True, limit_from_left=False)
+    G_left = bs.predict_surv(times, presorted_times=True, limit_from_left=True)
 
     G_small = (G < eps)
     if G_small.sum() > 0:

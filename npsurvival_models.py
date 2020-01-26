@@ -325,7 +325,7 @@ class RandomSurvivalForest():
                     self.feature_importances_ \
                         = np.array(self.feature_importances_)
 
-    def predict_proba(self, X, times, presorted_times=False):
+    def predict_surv(self, X, times, presorted_times=False):
         """
         Computes the forest's survival probability function estimate for each
         feature vector evaluated at user-specified times.
@@ -424,7 +424,7 @@ class BasicSurvival():
     def fit(self, y):
         self.tree = _fit_leaf(y)
 
-    def predict_proba(self, times, presorted_times=False,
+    def predict_surv(self, times, presorted_times=False,
                       limit_from_left=False):
         """
         Computes the Kaplan-Meier survival probability function estimate at
@@ -527,7 +527,7 @@ class KNNSurvival():
                                          **self.NN_index_kwargs)
         self.NN_index.fit(X)
 
-    def predict_proba(self, X, times, presorted_times=False,
+    def predict_surv(self, X, times, presorted_times=False,
                       limit_from_left=False, n_neighbors=None):
         """
         Computes the k-NN Kaplan-Meier survival probability function estimate
@@ -667,7 +667,7 @@ class KNNWeightedSurvival():
                                          **self.NN_index_kwargs)
         self.NN_index.fit(X)
 
-    def predict_proba(self, X, times, presorted_times=False,
+    def predict_surv(self, X, times, presorted_times=False,
                       limit_from_left=False, n_neighbors=None,
                       kernel_function=None):
         """
@@ -860,7 +860,7 @@ class KernelSurvival():
                                          **self.NN_index_kwargs)
         self.NN_index.fit(X)
 
-    def predict_proba(self, X, times, presorted_times=False,
+    def predict_surv(self, X, times, presorted_times=False,
                       limit_from_left=False, radius=None,
                       kernel_function=None):
         """
@@ -1178,7 +1178,7 @@ class RandomSurvivalForestANN():
                       np.random.RandomState(random_state.randint(4294967296)))
                   for tree_idx in range(self.n_estimators))
 
-    def predict_proba(self, X, times, presorted_times=False):
+    def predict_surv(self, X, times, presorted_times=False):
         """
         Computes the forest's survival probability function estimate for each
         feature vector evaluated at user-specified times.
@@ -2109,7 +2109,7 @@ class CDFRegressionKNNWeightedSurvival():
                                          **self.NN_index_kwargs)
         self.NN_index.fit(X)
 
-    def predict_proba(self, X, times, presorted_times=False,
+    def predict_surv(self, X, times, presorted_times=False,
                       limit_from_left=False, n_neighbors=None,
                       kernel_function=None):
         """
